@@ -1,5 +1,6 @@
 package com.example.quotes_slideshow_app;
 
+import java.util.HashMap;
 import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,10 @@ public class CarouselActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
 private ActivityCarousel2Binding binding;
+
+    HashMap<String, String> quotes = new HashMap<String,String>();
+
+
 
 
     @Override

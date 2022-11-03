@@ -1,5 +1,6 @@
 package com.example.quotes_slideshow_app;
 
+import java.util.HashMap;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -22,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+
+    HashMap<String,String> quotes = new HashMap<String,String>();
+
+    quotes.put("Leia Organa", "Help me, Obi-Wan Kenobi. You’re my only hope.");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
