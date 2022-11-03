@@ -73,4 +73,18 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    //This activity needs to display the fragments in  a slide
+    //I need to create dictionary for the data file
+    //I need a statement that calls the carousel
+            //I need to create a class/Activity for the carousel
+                //I need a function that will count how many "horses" in the carousel
+                    //This function will return the size of the set
+                //I need a function that will populate the "horses" in the carousel
+                    //Using the key from the set, function will iterate for the length of set
+                        //populate each fragment
+    //I need a statement that calls the adapter
+            //I need to create a class for the adapter
+                //I need a function that will create the fragments for me
+    //I need a statement that calls the viewPager
 }
