@@ -1,7 +1,6 @@
 package com.example.quotes_slideshow_app;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.TimerTask;
@@ -26,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
         sPage = findViewById(R.id.pager);
         sTabLayout = findViewById(R.id.tablayout);
 
-        //New Arraylist populates each slide
+        //New Arraylist to hold the slides is declared
         quoteItems = new ArrayList<>();
+
+        //Each slide is populated and stored in the ArrayList
         quoteItems.add(new SlideShowItemsModel_Class("Help me, Obi-Wan Kenobi. You’re my only " +
                 "hope.", "Leia Organa"));
         quoteItems.add(new SlideShowItemsModel_Class("The Force will be with you. Always.",
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 "ships, now. She’s fast enough for you, old man.", "Han Solo"));
         quoteItems.add(new SlideShowItemsModel_Class("Do. Or do not. There is no try.",
                 "Yoda"));
-        
+
+        //Adapter
         SlideShowAdapter sPager_adapter = new SlideShowAdapter(this, quoteItems);
         sPage.setAdapter(sPager_adapter);
 
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         slideTimes.add(6000L);
         slideTimes.add(2000L);
 
+        //Iterator dictates order of slides and how long each delay will be
         Iterator<Long> iter = slideTimes.iterator();
         while (iter.hasNext()){
             sTimer.scheduleAtFixedRate(new Slide_timer(), 0L, (Long) iter.next());
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     //This class sets the delay times between slides
     public class Slide_timer extends TimerTask{
 
+        //This method has each slide run in a consecutive order
         @Override
         public void run() {
 
