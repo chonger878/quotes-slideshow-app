@@ -1,11 +1,11 @@
 # quotes-slideshow-app
 
-#purpose: 
+# Purpose: 
 The purpose of this project was to create an app that would display a slideshow of
 quotes and who spoke them.  The sample data for this project were quotes from the Star Wars movie
 franchise.
 
-#App architecture: 
+# App architecture: 
 When I was building the app, the architecture appears to be straightforward, and
 consists of two layers. 
 
@@ -15,7 +15,7 @@ tools/libraries, which would display what is on those slides.
 At the bottom, there is the backend, such as where the slides' data are stored, as well as
 the Timer object/library that manipulates how much time passes between slides.
 
-#Components of the program:
+# Components of the program:
 There was a total of One (1) Activity (AKA MainActivity) and Three (3) Java 
 classes (one of which is inside the Main Activity) that I used for this project:
 SlideShowAdapter, SlideShowItemsModel_Class and Slide_timer.
@@ -39,7 +39,7 @@ To summarize, this class determines the order of the slides in the slideshow, wh
 a consecutive order. The Timer object declared in Main Activity would call on it to "schedule" how 
 long each slide is displayed in the determined order.
 
-#Area(s) of improvement: 
+# Area(s) of improvement: 
 I noticed that the slides were not running in the consecutive order that
 was requested. I think it might have something to do with how I hardcoded the data. Perhaps I should
 have a.) put the data in a DATA.json file, b.) wrote code to parse it and probably use a 
@@ -51,7 +51,7 @@ specifically I would like to review the documentation for the function to schedu
 time between tasks (Timer.scheduleFixedRate(task, long delay, long period) to improve the slideshow
 app.
 
-#Resources:
+# Resources:
 I found this article to be very helpful on building the app:
 https://www.section.io/engineering-education/how-to-create-an-automatic-slider-in-android-studio/
 
