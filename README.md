@@ -1,6 +1,6 @@
 # quotes-slideshow-app
 
-#Purpose: 
+#purpose: 
 The purpose of this project was to create an app that would display a slideshow of
 quotes and who spoke them.  The sample data for this project were quotes from the Star Wars movie
 franchise.
@@ -51,7 +51,7 @@ specifically I would like to review the documentation for the function to schedu
 time between tasks (Timer.scheduleFixedRate(task, long delay, long period) to improve the slideshow
 app.
 
-#Resources
+#Resources:
 I found this article to be very helpful on building the app:
 https://www.section.io/engineering-education/how-to-create-an-automatic-slider-in-android-studio/
 
