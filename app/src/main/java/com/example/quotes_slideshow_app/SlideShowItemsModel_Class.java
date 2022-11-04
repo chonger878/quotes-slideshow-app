@@ -1,5 +1,6 @@
 package com.example.quotes_slideshow_app;
 
+//This class sets up the data model that will store the quotes and speakers
 public class SlideShowItemsModel_Class {
     private String theQuote;
     private String theSpeaker;
