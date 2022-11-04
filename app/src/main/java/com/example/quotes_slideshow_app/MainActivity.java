@@ -1,14 +1,12 @@
 package com.example.quotes_slideshow_app;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Timer;
 import java.util.TimerTask;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -16,8 +14,11 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
     private List<SlideShowItemsModel_Class> quoteItems;
+    private List<Long> slideTimes;
+    java.util.Timer sTimer = new java.util.Timer();
     private ViewPager sPage;
     private TabLayout sTabLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +38,21 @@ public class MainActivity extends AppCompatActivity {
                 "ships, now. She’s fast enough for you, old man.", "Han Solo"));
         quoteItems.add(new SlideShowItemsModel_Class("Do. Or do not. There is no try.",
                 "Yoda"));
-
-        //HashMap<String, Integer> timeDelay = new HashMap<String, Integer>();
-        //timeDelay.put("Leia Organa", 3000);
-        //timeDelay.put("Obi-Wan Kenobi", 2000);
-        //timeDelay.put("Han Solo", 6000);
-        //timeDelay.put("Yoda", 2000);
+        
         SlideShowAdapter sPager_adapter = new SlideShowAdapter(this, quoteItems);
         sPage.setAdapter(sPager_adapter);
 
         //Using timer
-        java.util.Timer sTimer = new java.util.Timer();
+
+        slideTimes = new ArrayList<>();
+        slideTimes.add(3000L);
+        slideTimes.add(2000L);
+        slideTimes.add(6000L);
+        slideTimes.add(2000L);
+        Iterator<Long> iter = slideTimes.iterator();
+        while (iter.hasNext()){
+            sTimer.scheduleAtFixedRate((TimerTask) new Slide_timer(), 0L, (Long) iter.next());
+        }
         sTabLayout.setupWithViewPager(sPage,true);
 
 
