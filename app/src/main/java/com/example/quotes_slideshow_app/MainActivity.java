@@ -1,5 +1,6 @@
 package com.example.quotes_slideshow_app;
 
+import java.util.HashMap;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -23,9 +24,25 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        HashMap<String,String> quotes = new HashMap<String,String>();
+        quotes.put("Leia Organa", "Help me, Obi-Wan Kenobi. You’re my only hope.");
+        quotes.put("Obi-Wan Kenobi", "The Force will be with you. Always.");
+        quotes.put("Han Solo", "It’s the ship that made the Kessel run in less than twelve parsecs. " +
+                "I’ve outrun Imperial starships. Not the local bulk cruisers, mind you. " +
+                "I’m talking about the big Corellian ships, now. She’s fast " +
+                "enough for you, old man.");
+        quotes.put("Yoda", "Do. Or do not. There is no try.");
+
+        HashMap<String,Integer> timeDelay = new HashMap<String,Integer>();
+        timeDelay.put("Leia Organa",3000);
+        timeDelay.put("Obi-Wan Kenobi",2000);
+        timeDelay.put("Han Solo",6000);
+        timeDelay.put("Yoda",2000);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
