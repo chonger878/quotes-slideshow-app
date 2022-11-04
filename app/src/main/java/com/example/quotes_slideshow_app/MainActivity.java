@@ -3,6 +3,9 @@ package com.example.quotes_slideshow_app;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
@@ -19,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         sPage = findViewById(R.id.pager);
+        sTabLayout = findViewById(R.id.tablayout);
 
         quoteItems = new ArrayList<>();
         quoteItems.add(new SlideShowItemsModel_Class("Help me, Obi-Wan Kenobi. You’re my only " +
@@ -33,13 +38,39 @@ public class MainActivity extends AppCompatActivity {
         quoteItems.add(new SlideShowItemsModel_Class("Do. Or do not. There is no try.",
                 "Yoda"));
 
-        HashMap<String, Integer> timeDelay = new HashMap<String, Integer>();
-        timeDelay.put("Leia Organa", 3000);
-        timeDelay.put("Obi-Wan Kenobi", 2000);
-        timeDelay.put("Han Solo", 6000);
-        timeDelay.put("Yoda", 2000);
+        //HashMap<String, Integer> timeDelay = new HashMap<String, Integer>();
+        //timeDelay.put("Leia Organa", 3000);
+        //timeDelay.put("Obi-Wan Kenobi", 2000);
+        //timeDelay.put("Han Solo", 6000);
+        //timeDelay.put("Yoda", 2000);
         SlideShowAdapter sPager_adapter = new SlideShowAdapter(this, quoteItems);
         sPage.setAdapter(sPager_adapter);
-        sTabLayout.setupWithViewPager(sPage);
+
+        //Using timer
+        java.util.Timer sTimer = new java.util.Timer();
+        sTabLayout.setupWithViewPager(sPage,true);
+
+
     }
+
+    public class Slide_timer extends TimerTask{
+
+        @Override
+        public void run() {
+
+            MainActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (sPage.getCurrentItem()< quoteItems.size()-1) {
+                        sPage.setCurrentItem(sPage.getCurrentItem()+1);
+                    }
+                    else
+                        //moves to first slide
+                        sPage.setCurrentItem(0);
+                }
+            });
+
+        }
+    }
+
 }
