@@ -14,12 +14,19 @@ public class SlideShowAdapter extends PagerAdapter {
     private Context sContext;
     private List<SlideShowItemsModel_Class> slideShowItemsList;
 
+    /**Constructor
+     * @param sContext- app context
+     * @param slideShowItemsList-data to be displayed on the slide
+     **/
     public SlideShowAdapter(Context sContext, List<SlideShowItemsModel_Class> slideShowItemsList){
         this.sContext = sContext;
         this.slideShowItemsList = slideShowItemsList;
     }
 
-    //This object call will manifest each slide
+    /**This object call "inflates" (produces) each slide
+     * @param container-slide
+     * @param position-order in which the data is put into the slides
+     **/
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position){
 
@@ -33,7 +40,11 @@ public class SlideShowAdapter extends PagerAdapter {
         //Populates each slide
         quote.setText(slideShowItemsList.get(position).get_quote());
         speaker.setText(slideShowItemsList.get(position).get_speaker());
+
+        //Makes the slide and adds it to the deck
         container.addView(sliderLayout);
+
+        //returns the slideshow
         return sliderLayout;
     }
 
@@ -43,13 +54,20 @@ public class SlideShowAdapter extends PagerAdapter {
         return slideShowItemsList.size();
     }
 
-    //Destroys each slide but will recreate it if needed
+    /**Destroys each slide after it passes but will recreate it if needed
+     * @param container - the slide itself
+     * @param position- slide order
+     * @param object - the slide object
+     **/
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View)object);
     }
 
-    //Checks that the object is the view
+    /**Checks that the object key is the view
+     * @param view- what is displayed on the slide
+     * @param object- components of the slide to be displayed
+     **/
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view == object;
